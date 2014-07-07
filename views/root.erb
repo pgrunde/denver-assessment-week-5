@@ -1,0 +1,15 @@
+<% if session[:user_id] == nil %>
+<p>Contacts</p>
+
+<a href="/login/">Login</a>
+
+<% end %>
+
+<% if session[:user_id] %>
+  <p>Welcome, <%= user %></p>
+  <p>Contacts</p>
+  <% contact_hash.each do |hash| %>
+    <p><%= hash[:name] %> : <%= hash[:email] %></p><br/>
+  <% end %>
+  <a href="/logout/">Logout</a>
+<% end %>
